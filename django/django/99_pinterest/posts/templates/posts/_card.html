@@ -1,0 +1,14 @@
+<div class="card">
+  
+  {% if post.image %}
+    <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.image }}">
+  {% else %}
+    <img src="/media/lion.jpg" class="card-img-top" alt="">
+  {% endif %}
+  <div class="card-body">
+    <h5 class="card-title text-center">
+      <a href="{% url 'posts:detail' post.pk %}" class="btn">{{ post.title }}</a> 
+    </h5>  
+  </div>
+</div>
+

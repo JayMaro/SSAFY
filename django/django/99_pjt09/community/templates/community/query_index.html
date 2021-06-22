@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>query index</h1>
+  {% for review in reviews %}
+    <p>{{ review.title }}</p>
+    {% comment %} <p>댓글수 : {{ review.comment__count }}</p> {% endcomment %}
+    {% comment %} <p>작성자 : {{ review.user.username }}</p> {% endcomment %}
+    {% for comment in review.comment_set.all  %}
+      <li>{{comment.user.username}} - {{ comment.content }}</li>
+    {% endfor %}
+    <hr>
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Movies</h1>
+  <div id="movie-list">
+    <div v-for="movie in movies" style='margin:50px'>
+      <h5 v-text="movie.fields.title"></h5>
+      <p v-text="movie.fields.overview"></p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <script>
+    const app = new Vue({
+      // delimiters: ['[[',']]'],
+      el: '#movie-list',
+      data: {
+        movies: [],
+        url: 'http://127.0.0.1:8000/movies/',
+        pageNum: 1,
+      },
+      methods: {
+        getMovies: function () {
+          requestData = {
+            method: 'get',
+            url: `${this.url}?page=${this.pageNum}`,
+            headers: {'X-Requested-With': 'XMLHttpRequest'},
+          }
+          axios(requestData)
+            .then((response)=>{
+              console.log(response.data)
+              this.movies.push(...response.data)
+              this.pageNum += 1
+            })
+        },
+        checkBottom: function () {
+          const {scrollTop, clientHeight, scrollHeight} = document.documentElement
+          if (scrollHeight - scrollTop === clientHeight) {
+            this.getMovies()
+          }
+        }
+      },
+      created: function () {
+        this.getMovies()
+        document.addEventListener('scroll', this.checkBottom)
+      }
+    })
+  </script>
+ 
+{% endblock %}
