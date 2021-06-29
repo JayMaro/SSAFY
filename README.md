@@ -25,12 +25,16 @@
 
 ### 교육 이수내역
 
-![KakaoTalk_20210629_144133908](README.assets/KakaoTalk_20210629_144133908-1624945400514.jpg)
+
+
+![KakaoTalk_20210629_144133908](README.assets/KakaoTalk_20210629_144133908.jpg)
 
 ![KakaoTalk_20210629_144133908_01](README.assets/KakaoTalk_20210629_144133908_01.jpg)
 
 
 
 ### 수상 내역
+
+
 
 ![KakaoTalk_20210629_144133908_02](README.assets/KakaoTalk_20210629_144133908_02.jpg)
